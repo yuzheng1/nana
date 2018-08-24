@@ -21,4 +21,13 @@ function goCurl($url,$method = 'get',$post_data = ''){
     return $output;
 }
 
+/**
+ * 获取当前时间的毫秒数
+ * @author YZ
+ */
+function getMillisecond() {
+    list($s1, $s2) = explode(' ', microtime());
+    return (float)sprintf('%.0f', (floatval($s1) + floatval($s2)) * 1000);
+}
+
 ?>

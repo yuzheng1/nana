@@ -17,5 +17,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix' => 'user','namespace' => 'Api'],function(){
-    Route::any('openId','UserController@openId');
+    Route::any('openid','UserController@openId');
+    Route::any('login','UserController@login');
+});
+Route::group(['prefix' => 'image','namespace' => 'Api'],function(){
+    Route::any('upload','ImageController@upLoad');
 });
