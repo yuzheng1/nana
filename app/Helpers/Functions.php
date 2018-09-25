@@ -30,4 +30,14 @@ function getMillisecond() {
     return (float)sprintf('%.0f', (floatval($s1) + floatval($s2)) * 1000);
 }
 
+/**
+ * 获取七牛完整图片路径
+ * @param string $path
+ */
+function getQiNiuImageUrl($path){
+    $baseUrl = config('qiniu.baseUrl');
+    $url = $baseUrl.ltrim($path,"/");
+    return $url;
+}
+
 ?>

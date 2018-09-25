@@ -33,10 +33,8 @@ class ImageController extends Controller{
      * @param unknown $file
      * @author YZ
      */
-    public function upLoad(){
-        $p_id = 1;
-        $file = base_path('public/image/app.png');
-        $res = ['code' => 501,'msg' => '','data' => []];        
+    public function upLoad(Request $request){
+        $res = ['code' => 501,'msg' => '','data' => []];
         //获取上传文件的扩展名
         $extend_arr = explode('.', $file);
         $extend = $extend_arr[count($extend_arr)-1];
@@ -59,11 +57,10 @@ class ImageController extends Controller{
             if ($err !== null) {
                 $res = ['code' => 503,'msg' => '图片上传失败','data' => []];
             } else {
-                $res = ImageService::getInstance()->saveImage($p_id, $url);
+                $res = ImageService::getInstance()->saveImage($p_id, $ret['key']);
             }
-            exit;
-        }
-        return $res;
+        }        
+        return response()->json($res);
     }
 }
 

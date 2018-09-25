@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::group(['prefix' => 'test','namespace' => 'Test'],function(){
+    Route::any('mongodb','MongoController@dbTest');
+    Route::any('soap','WebServiceController@exec');
+});
