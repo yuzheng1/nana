@@ -16,5 +16,5 @@ Route::get('/', function () {
 });
 Route::group(['prefix' => 'test','namespace' => 'Test'],function(){
     Route::any('mongodb','MongoController@dbTest');
-    Route::any('soap','WebServiceController@exec');
+    Route::any('soap','SoapController@exec');
 });
